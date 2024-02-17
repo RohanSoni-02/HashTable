@@ -31,4 +31,17 @@ class HashTable{
 private:
     static const int SIZE = 7;
     Node* dataMap[SIZE];
+    
+public:
+    void printTable(){
+        for(int i =0; i < SIZE; i++){
+            if(dataMap[i]){
+                Node* temp = dataMap[i];
+                while (temp) {
+                    cout<< " {" << temp->key << ", " << temp->value<< "}"<<endl;
+                    temp = temp->next;
+                }
+            }
+        }
+    }
 };
