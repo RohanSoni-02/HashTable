@@ -75,6 +75,18 @@ public:
         }
         return 0;
     }
+    
+    vector<string> keys(){
+        vector<string> allKeys;
+        for(int i = 0; i <SIZE; i++){
+            Node* temp = dataMap[i];
+            while (temp != nullptr) {
+                allKeys.push_back(temp->key);
+                temp = temp->next;
+            }
+        }
+        return allKeys;
+    }
 };
 
 int main() {
@@ -86,7 +98,11 @@ int main() {
     hash->set("toys", 900);
     
     
-    hash->printTable();
+    //hash->printTable();
     
-    cout<< hash->get("nails");
+    vector<string> keys = hash->keys();
+    
+    for (auto key: keys) {
+        cout<< key <<endl;
+    }
 }
